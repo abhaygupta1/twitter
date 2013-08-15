@@ -5,43 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>71E5F466-FC64-4870-9AE8-BA8D81012DF8</string>
+	<string>73FB3786-7FBD-456F-8520-642829D99441</string>
 	<key>IDESourceControlProjectName</key>
 	<string>twitter</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>982CAAC3-F7DA-43D5-BA24-791140BEB0CC</key>
-		<string>https://github.com/thecodepath/ios_twitter/trunk</string>
+		<key>53960BEE-8EFE-41A7-8F50-BD133C691523</key>
+		<string>https://github.com/abhaygupta1/twitter.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>twitter.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>982CAAC3-F7DA-43D5-BA24-791140BEB0CC</key>
+		<key>53960BEE-8EFE-41A7-8F50-BD133C691523</key>
 		<string>..</string>
 	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>982CAAC3-F7DA-43D5-BA24-791140BEB0CC</key>
-		<string>https://github.com/thecodepath/ios_twitter</string>
-	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/thecodepath/ios_twitter/trunk/twitter.xcworkspace</string>
+	<string>https://github.com/abhaygupta1/twitter.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>982CAAC3-F7DA-43D5-BA24-791140BEB0CC</string>
+	<string>53960BEE-8EFE-41A7-8F50-BD133C691523</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
-			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
-			<string>branches</string>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
-			<string>trunk</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>982CAAC3-F7DA-43D5-BA24-791140BEB0CC</string>
+			<string>53960BEE-8EFE-41A7-8F50-BD133C691523</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ios_twitter</string>
 		</dict>

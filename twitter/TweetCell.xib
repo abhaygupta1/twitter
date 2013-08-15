@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" id="Iai-xY-3U7" customClass="TweetCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="331" id="TIW-NR-0Wf" customClass="TweetCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Iai-xY-3U7" id="vBB-QK-9AH">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="TIW-NR-0Wf" id="we9-ue-t5I">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUk-vB-Pc1">
-                        <rect key="frame" x="107" y="0.0" width="97" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbF-eU-JiO">
+                        <rect key="frame" x="6" y="7" width="50" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P28-m6-c2b">
+                        <rect key="frame" x="60" y="5.5" width="150" height="10"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="5Rt-6E-0bb">
+                        <rect key="frame" x="60" y="29" width="250" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="5Rt-6E-0bb" firstAttribute="top" secondItem="P28-m6-c2b" secondAttribute="bottom" id="D0Y-b9-wYm"/>
+                    <constraint firstItem="P28-m6-c2b" firstAttribute="top" secondItem="we9-ue-t5I" secondAttribute="top" constant="1" id="HTS-wn-ToZ"/>
+                    <constraint firstAttribute="trailing" secondItem="5Rt-6E-0bb" secondAttribute="trailing" constant="10" id="I0X-wQ-uXI"/>
+                    <constraint firstAttribute="bottom" secondItem="5Rt-6E-0bb" secondAttribute="bottom" id="L1F-x2-2MT"/>
+                    <constraint firstItem="P28-m6-c2b" firstAttribute="leading" secondItem="5Rt-6E-0bb" secondAttribute="leading" id="OCn-aZ-aTs"/>
+                    <constraint firstItem="P28-m6-c2b" firstAttribute="leading" secondItem="LbF-eU-JiO" secondAttribute="trailing" constant="2" id="fuL-jv-J1k"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="tweet" destination="iUk-vB-Pc1" id="6Pv-3s-8LX"/>
+                <outlet property="name" destination="P28-m6-c2b" id="tsN-Uf-8V7"/>
+                <outlet property="profileImageView" destination="LbF-eU-JiO" id="E3A-nM-NWK"/>
+                <outlet property="tweet" destination="5Rt-6E-0bb" id="x2m-TZ-AgZ"/>
             </connections>
         </tableViewCell>
     </objects>

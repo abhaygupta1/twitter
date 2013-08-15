@@ -8,6 +8,9 @@
 
 #import "TimelineVC.h"
 #import "TweetCell.h"
+#import "ComposeTweetViewController.h"
+#import "RetweetViewController.h"
+#import "AFNetworking.h"
 
 @interface TimelineVC ()
 
@@ -38,7 +41,11 @@
     UINib *customNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"TweetCell"];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]
+                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
+                                            action:@selector(onComposeButton)];
 
 
     // Uncomment the following line to preserve selection between presentations.
@@ -54,6 +61,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -63,8 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-    //self.tweets.count;
+    return self.tweets.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,9 +82,18 @@
     //UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 
     Tweet *tweet = self.tweets[indexPath.row];
-    //cell.textLabel.text = tweet.text;
-    
-    return cell;
+    cell.tweet.text = tweet.text;
+    cell.name.text = tweet.name;
+    [cell.profileImageView setImageWithURL:[NSURL URLWithString:tweet.image]];
+        return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Tweet *tweet = self.tweets[indexPath.row];
+    CGSize size = [tweet.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:10] constrainedToSize:CGSizeMake(280, 999) lineBreakMode:NSLineBreakByWordWrapping];
+    NSLog(@"%f",size.height);
+    return MAX(size.height + 10 + 10, 50);
 }
 
 /*
@@ -122,6 +139,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RetweetViewController *reTweetVC = [[RetweetViewController alloc] init];
+    Tweet *tweet = self.tweets[indexPath.row];
+    reTweetVC.tweet = tweet;
+    [self.navigationController pushViewController:reTweetVC animated:NO];
+
+
 }
 
 /*
@@ -140,6 +163,15 @@
 
 - (void)onSignOutButton {
     [User setCurrentUser:nil];
+}
+
+#pragma mark - Private methods
+
+- (void)onComposeButton {
+    
+    ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
+    UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
+    [self.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
 }
 
 - (void)reload {

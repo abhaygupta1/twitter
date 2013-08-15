@@ -10,6 +10,7 @@
 #import "TwitterClient.h"
 #import "TimelineVC.h"
 #import "SignedOutVC.h"
+#import "ComposeTweetViewController.h"
 
 @interface AppDelegate ()
 
