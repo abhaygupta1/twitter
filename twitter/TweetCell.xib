@@ -14,9 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbF-eU-JiO">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbF-eU-JiO">
                         <rect key="frame" x="6" y="7" width="50" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Zgh-7S-yS6"/>
+                            <constraint firstAttribute="height" constant="50" id="aIO-sy-nP1"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P28-m6-c2b">
                         <rect key="frame" x="60" y="5.5" width="150" height="10"/>
@@ -38,6 +42,7 @@
                     <constraint firstAttribute="bottom" secondItem="5Rt-6E-0bb" secondAttribute="bottom" id="L1F-x2-2MT"/>
                     <constraint firstItem="P28-m6-c2b" firstAttribute="leading" secondItem="5Rt-6E-0bb" secondAttribute="leading" id="OCn-aZ-aTs"/>
                     <constraint firstItem="P28-m6-c2b" firstAttribute="leading" secondItem="LbF-eU-JiO" secondAttribute="trailing" constant="2" id="fuL-jv-J1k"/>
+                    <constraint firstItem="LbF-eU-JiO" firstAttribute="leading" secondItem="we9-ue-t5I" secondAttribute="leading" constant="6" id="svv-fp-xk1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
