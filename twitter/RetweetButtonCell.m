@@ -7,6 +7,7 @@
 //
 
 #import "RetweetButtonCell.h"
+#import "ComposeTweetViewController.h"
 
 @implementation RetweetButtonCell
 
@@ -15,6 +16,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -25,5 +27,20 @@
 
     // Configure the view for the selected state
 }
+
+/*
+- (IBAction)operationPressed:(UIButton *)sender {
+    NSLog(@"xxxButton Pressed %@ ***", sender.titleLabel.text);
+   if ([sender.titleLabel.text isEqualToString:@"Reply"]) {
+        
+        ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
+        UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
+        [self.viewController.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
+        
+    }
+}
+*/
+
+
 
 @end

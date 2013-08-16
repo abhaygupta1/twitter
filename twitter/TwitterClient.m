@@ -65,6 +65,12 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     [self getPath:@"1.1/statuses/home_timeline.json" parameters:params success:success failure:failure];
 }
 
+- (void)favoriteWithId:(id)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}];
+    [self getPath:@"1.1/1.1/favorites/create.json" parameters:params success:success failure:failure];
+}
+
+
 #pragma mark - Private methods
 
 - (void)setAccessToken:(AFOAuth1Token *)accessToken {

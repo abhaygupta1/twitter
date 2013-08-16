@@ -10,6 +10,11 @@
 
 @implementation Tweet
 
+- (id)tweetId {
+    return [self.data valueOrNilForKeyPath:@"id"];
+}
+
+
 - (NSString *)text {
     return [self.data valueOrNilForKeyPath:@"text"];
 }

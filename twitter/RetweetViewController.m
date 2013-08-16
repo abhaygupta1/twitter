@@ -64,7 +64,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,6 +80,7 @@
             tweetCell.name.text = self.tweet.name;
             tweetCell.tweet.text = self.tweet.text;
             [tweetCell.profileImageView setImageWithURL:[NSURL URLWithString:self.tweet.image]];
+            NSLog(@"The tweet id is %@", self.tweet.tweetId);
             cell = tweetCell;
             break;
         }
@@ -89,7 +90,7 @@
             if (retweetButtonCell == nil) {
                 retweetButtonCell = [[RetweetButtonCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
-            
+            retweetButtonCell.viewController = self;
             cell = retweetButtonCell;
             break;
         }
@@ -136,6 +137,10 @@
     NSLog(@"%f", height);
 
     return height;
+}
+
+- (IBAction)operationPressed:(UIButton *)sender {
+    NSLog(@"Button Pressed ");
 }
 
 

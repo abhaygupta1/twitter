@@ -13,4 +13,6 @@
 
 @property (nonatomic, weak) Tweet *tweet;
 
+- (IBAction)operationPressed:(UIButton *)sender;
+
 @end

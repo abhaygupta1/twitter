@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RetweetButtonCell : UITableViewCell
+@property (nonatomic, weak) UIViewController *viewController;
 
 @end
