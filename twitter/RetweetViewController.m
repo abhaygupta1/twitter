@@ -10,6 +10,7 @@
 #import "Tweet.h"
 #import "TweetCell.h"
 #import "RetweetButtonCell.h"
+#import "ComposeTweetViewController.h"
 #import "ReplyCell.h"
 #import "AFNetworking.h"
 
@@ -143,6 +144,22 @@
     NSLog(@"Button Pressed ");
 }
 
+- (void)onReplyButton {
+    ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
+    UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
+    [self.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
+}
+
+- (void)onFavoriteButton {
+    NSLog(@"Favorite Button Pressed");
+    [[TwitterClient instance] favoriteWithId:self.tweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"%@", response);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error is %@", error);
+    }];
+}
+
+     
 
 /*
 // Override to support conditional editing of the table view.

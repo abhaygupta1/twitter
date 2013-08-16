@@ -13,6 +13,10 @@
 
 @property (nonatomic, weak) Tweet *tweet;
 
+- (void)onReplyButton;
+- (void)onFavoriteButton;
+
+
 - (IBAction)operationPressed:(UIButton *)sender;
 
 @end

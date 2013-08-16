@@ -28,18 +28,17 @@
     // Configure the view for the selected state
 }
 
-/*
+
 - (IBAction)operationPressed:(UIButton *)sender {
     NSLog(@"xxxButton Pressed %@ ***", sender.titleLabel.text);
    if ([sender.titleLabel.text isEqualToString:@"Reply"]) {
-        
-        ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
-        UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
-        [self.viewController.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
-        
+       [self.viewController onReplyButton];
     }
+   else if ([sender.titleLabel.text isEqualToString:@"Favorite"]) {
+       [self.viewController onFavoriteButton];
+   }
 }
-*/
+
 
 
 
