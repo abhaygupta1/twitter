@@ -7,6 +7,7 @@
 //
 
 #import "RetweetViewController.h"
+#import "RetweetButtonCellDelegate.h"
 #import "Tweet.h"
 #import "TweetCell.h"
 #import "RetweetButtonCell.h"
@@ -16,6 +17,8 @@
 
 
 @interface RetweetViewController ()
+
+
 
 @end
 
@@ -39,12 +42,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     UINib *customNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"TweetCell"];
     customNib = [UINib nibWithNibName:@"RetweetButtonCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"RetweetButtonCell"];
-    customNib = [UINib nibWithNibName:@"ReplyCell" bundle:nil];
-    [self.tableView registerNib:customNib forCellReuseIdentifier:@"ReplyCell"];
 
 }
 
@@ -91,20 +93,8 @@
             if (retweetButtonCell == nil) {
                 retweetButtonCell = [[RetweetButtonCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
-            retweetButtonCell.viewController = self;
+            retweetButtonCell.delegate = self;
             cell = retweetButtonCell;
-            break;
-        }
-        case 2:{
-            static NSString *CellIdentifier = @"ReplyCell";
-            ReplyCell *replyCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (replyCell == nil) {
-                replyCell = [[ReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            [[replyCell.reply layer] setBorderColor:[[UIColor grayColor] CGColor]];
-            [[replyCell.reply layer] setBorderWidth:1.3];
-            
-            cell = replyCell;
             break;
         }
 
@@ -121,7 +111,7 @@
     switch (indexPath.row) {
         case 0: {
             Tweet *tweet = self.tweet;
-            CGSize size = [tweet.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:10] constrainedToSize:CGSizeMake(280, 999) lineBreakMode:NSLineBreakByWordWrapping];
+            CGSize size = [tweet.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:10] constrainedToSize:CGSizeMake(240, 999) lineBreakMode:NSLineBreakByWordWrapping];
             height = MAX(size.height + 10 + 10, 50);
             break;
         }
@@ -129,10 +119,7 @@
             height = 30;
             break;
         }
-        case 2: {
-            height = 160;
-            break;
-        }
+
         default: height = 0;
     }
     NSLog(@"%f", height);
@@ -140,9 +127,7 @@
     return height;
 }
 
-- (IBAction)operationPressed:(UIButton *)sender {
-    NSLog(@"Button Pressed ");
-}
+#pragma mark - Retweet Button Cell Delegate Methods
 
 - (void)onRetweetButton {
     NSLog(@"Retweet Button Pressed with Id %@", self.tweet.tweetId);
@@ -155,6 +140,7 @@
 
 - (void)onReplyButton {
     ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
+    composeTweetVC.title = @"Reply";
     UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
     composeTweetVC.tweetId = self.tweet.tweetId;
     [self.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
@@ -169,63 +155,5 @@
     }];
 }
 
-     
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
- 
- */
 
 @end

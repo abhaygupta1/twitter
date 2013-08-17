@@ -96,6 +96,7 @@
 		B1020A8A17BC9E0E0038C04D /* ReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
 		B1020A8B17BC9E0E0038C04D /* ReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyCell.m; sourceTree = "<group>"; };
 		B1020A8D17BC9E260038C04D /* ReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
+		B1020A8F17C030030038C04D /* RetweetButtonCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RetweetButtonCellDelegate.h; sourceTree = "<group>"; };
 		B1D3F04317B9EFD70048096C /* ComposeTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeTweetViewController.h; sourceTree = "<group>"; };
 		B1D3F04417B9EFD70048096C /* ComposeTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeTweetViewController.m; sourceTree = "<group>"; };
 		B1D3F04517B9EFD70048096C /* ComposeTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeTweetViewController.xib; sourceTree = "<group>"; };
@@ -219,6 +220,7 @@
 				B1D3F04317B9EFD70048096C /* ComposeTweetViewController.h */,
 				B1D3F04417B9EFD70048096C /* ComposeTweetViewController.m */,
 				B1D3F04517B9EFD70048096C /* ComposeTweetViewController.xib */,
+				B1020A8F17C030030038C04D /* RetweetButtonCellDelegate.h */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

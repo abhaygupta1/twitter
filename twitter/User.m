@@ -18,6 +18,9 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
 
 static User *_currentUser;
 
+#pragma mark - Class Methods
+
+
 + (User *)currentUser {
     if (!_currentUser) {
         NSString *jsonString = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentUserKey];
@@ -45,6 +48,13 @@ static User *_currentUser;
         _currentUser = currentUser; // Needs to be set before firing the notification
         [[NSNotificationCenter defaultCenter] postNotificationName:UserDidLogoutNotification object:nil];
     }
+}
+
+#pragma mark - Instance Methods
+
+
+- (NSString *)name {
+    return [self valueOrNilForKeyPath:@"name"];
 }
 
 @end

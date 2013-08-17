@@ -79,9 +79,7 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 }
 
 - (void)retweetWithId:(id)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    NSMutableString* path = [NSMutableString stringWithString: @"1.1/statuses/retweet/"];
-    [path appendString:[tweetId stringValue]];
-    [path appendString:@".json"];
+    NSMutableString* path = [NSMutableString stringWithFormat: @"1.1/statuses/retweet/%@.json", tweetId];
     NSLog(@"The path is %@", path);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [self postPath:path  parameters:params success:success failure:failure];

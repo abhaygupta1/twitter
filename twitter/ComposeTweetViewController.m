@@ -8,6 +8,7 @@
 
 #import "ComposeTweetViewController.h"
 #import "TwitterClient.h"
+#import "User.h"
 
 @interface ComposeTweetViewController ()
 
@@ -19,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-            self.title = @"Compose";
+            //self.title = @"Compose";
     }
     self.tweetId = nil;
     return self;
@@ -32,6 +33,7 @@
     self.tweet.layer.borderWidth = 1.0f;
     self.tweet.layer.borderColor = [[UIColor grayColor] CGColor];
     self.tweet.text = @"";
+    self.name.text = [[User currentUser] name];
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]
                        initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self
                        action:@selector(onCancelButton)];
@@ -60,6 +62,5 @@
     }];
    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 @end

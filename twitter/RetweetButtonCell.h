@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RetweetViewController.h"
+#import "RetweetButtonCellDelegate.h"
 
 @interface RetweetButtonCell : UITableViewCell
+
 - (IBAction)operationPressed:(UIButton *)sender;
 
-@property (nonatomic, weak) RetweetViewController *viewController;
+@property (nonatomic, weak) id<RetweetButtonCellDelegate> delegate;
 
 @end

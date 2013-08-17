@@ -11,6 +11,8 @@
 @interface ComposeTweetViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITextView *tweet;
+@property (nonatomic, weak) IBOutlet UILabel *name;
+
 @property (nonatomic, weak) id tweetId;
 
 @end

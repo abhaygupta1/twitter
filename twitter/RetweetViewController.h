@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "RetweetButtonCellDelegate.h"
 
-@interface RetweetViewController : UITableViewController
+
+@interface RetweetViewController : UITableViewController <RetweetButtonCellDelegate>
 
 @property (nonatomic, weak) Tweet *tweet;
-
-- (void)onReplyButton;
-- (void)onFavoriteButton;
-- (void)onRetweetButton;
-
-
-
-- (IBAction)operationPressed:(UIButton *)sender;
 
 @end

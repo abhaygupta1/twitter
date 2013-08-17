@@ -15,8 +15,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
-        
+        // Initialization code        
     }
     return self;
 }
@@ -32,13 +31,13 @@
 - (IBAction)operationPressed:(UIButton *)sender {
     NSLog(@"xxxButton Pressed %@ ***", sender.titleLabel.text);
    if ([sender.titleLabel.text isEqualToString:@"Reply"]) {
-       [self.viewController onReplyButton];
+       [self.delegate onReplyButton];
     }
    else if ([sender.titleLabel.text isEqualToString:@"Favorite"]) {
-       [self.viewController onFavoriteButton];
+       [self.delegate onFavoriteButton];
    }
    else if ([sender.titleLabel.text isEqualToString:@"Retweet"]) {
-       [self.viewController onRetweetButton];
+       [self.delegate onRetweetButton];
    }
 }
 
