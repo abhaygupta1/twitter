@@ -37,6 +37,9 @@
    else if ([sender.titleLabel.text isEqualToString:@"Favorite"]) {
        [self.viewController onFavoriteButton];
    }
+   else if ([sender.titleLabel.text isEqualToString:@"Retweet"]) {
+       [self.viewController onRetweetButton];
+   }
 }
 
 

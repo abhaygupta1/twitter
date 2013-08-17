@@ -46,6 +46,12 @@
     self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]
                                             initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
                                             action:@selector(onComposeButton)];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    refreshControl.tintColor = [UIColor magentaColor];
+    [refreshControl addTarget:self action:@selector(updateTable) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 
 
     // Uncomment the following line to preserve selection between presentations.
@@ -172,6 +178,14 @@
     ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
     UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
     [self.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
+}
+
+- (void)updateTable
+{
+    
+    [self reload];
+    
+    [self.refreshControl endRefreshing];
 }
 
 - (void)reload {

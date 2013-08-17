@@ -144,9 +144,19 @@
     NSLog(@"Button Pressed ");
 }
 
+- (void)onRetweetButton {
+    NSLog(@"Retweet Button Pressed with Id %@", self.tweet.tweetId);
+    [[TwitterClient instance] retweetWithId:self.tweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error is %@", error);
+    }];
+}
+
 - (void)onReplyButton {
     ComposeTweetViewController *composeTweetVC = [[ComposeTweetViewController alloc] init];
     UINavigationController *composeTweetNVC = [[UINavigationController alloc] initWithRootViewController:composeTweetVC];
+    composeTweetVC.tweetId = self.tweet.tweetId;
     [self.navigationController presentViewController:composeTweetNVC animated:YES completion:nil];
 }
 

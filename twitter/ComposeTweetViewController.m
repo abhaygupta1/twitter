@@ -7,6 +7,7 @@
 //
 
 #import "ComposeTweetViewController.h"
+#import "TwitterClient.h"
 
 @interface ComposeTweetViewController ()
 
@@ -20,7 +21,8 @@
     if (self) {
             self.title = @"Compose";
     }
-        return self;
+    self.tweetId = nil;
+    return self;
 }
 
 - (void)viewDidLoad
@@ -50,6 +52,13 @@
 }
 
 - (void)onActionButton {
+    
+    [[TwitterClient instance] updateWithText:self.tweet.text tweetId:self.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error is %@", error);
+    }];
+   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 

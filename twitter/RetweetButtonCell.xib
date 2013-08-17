@@ -21,6 +21,9 @@
                         <state key="normal" title="Retweet">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="operationPressed:" destination="EEF-Lj-rTe" eventType="touchDown" id="FfQ-L8-g1W"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe3-cs-TCi">
                         <rect key="frame" x="20" y="7" width="60" height="30"/>

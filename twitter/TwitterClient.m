@@ -70,6 +70,23 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     [self postPath:@"1.1/favorites/create.json" parameters:params success:success failure:failure];
 }
 
+- (void)updateWithText:(NSString *)text tweetId:(id)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"status": text}];
+    if (tweetId) {
+        [params setObject:tweetId forKey:@"in_reply_to_status_id"];
+    }
+    [self postPath:@"1.1/statuses/update.json" parameters:params success:success failure:failure];
+}
+
+- (void)retweetWithId:(id)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableString* path = [NSMutableString stringWithString: @"1.1/statuses/retweet/"];
+    [path appendString:[tweetId stringValue]];
+    [path appendString:@".json"];
+    NSLog(@"The path is %@", path);
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [self postPath:path  parameters:params success:success failure:failure];
+}
+
 
 #pragma mark - Private methods
 

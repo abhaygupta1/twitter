@@ -15,6 +15,8 @@
 
 - (void)onReplyButton;
 - (void)onFavoriteButton;
+- (void)onRetweetButton;
+
 
 
 - (IBAction)operationPressed:(UIButton *)sender;
