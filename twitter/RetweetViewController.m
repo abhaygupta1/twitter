@@ -136,6 +136,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error is %@", error);
     }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onReplyButton {
@@ -153,6 +154,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error is %@", error);
     }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
